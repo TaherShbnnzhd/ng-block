@@ -1,3 +1,5 @@
+/* بسم الله الرحمن الرحیم */
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pajoohesh-template';
+  title = 'block-template';
 }

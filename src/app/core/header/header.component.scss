@@ -1,0 +1,20 @@
+/* بسم الله الرحمن الرحیم */
+
+.block-header {
+    padding: 1rem 2rem;
+    background-color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+
+    .block-title {
+        font-size: x-large;
+        display: inline-flex;
+        align-items: center;
+        color: black;
+        float: right;
+    }
+}
