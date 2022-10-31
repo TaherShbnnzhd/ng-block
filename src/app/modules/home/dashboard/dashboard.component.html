@@ -2,7 +2,8 @@
 
 <h3>Dashboard</h3>
 
-<block-simple-button *ngIf="!userInfo$"
+<block-simple-button #GetUsersInfoButton
+    *ngIf="!userInfo$"
     title="Get Users Info"
     (click)="getUser()"></block-simple-button>
 
