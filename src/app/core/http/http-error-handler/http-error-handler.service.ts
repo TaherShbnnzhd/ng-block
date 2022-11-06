@@ -36,13 +36,13 @@ export class HttpErrorHandlerService {
 
     return (error: HttpErrorResponse): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure.
-      // log to console instead:
-      console.error(error); 
-
       const message = (error.error instanceof ErrorEvent) ?
         error.error.message :
         `server returned code ${error.status} with body "${error.error}"`;
+
+      // TODO: send the error to remote logging infrastructure.
+      // log to console instead:
+      console.error(message, error);
 
       // TODO: better job of transforming error for user consumption.
       this.messageService.add(`${serviceName}: ${operation} failed: ${message}`);
