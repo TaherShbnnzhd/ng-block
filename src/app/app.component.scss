@@ -5,6 +5,8 @@
     overflow: hidden;
     background-color: white;
     border: 2px solid black;
+    min-height: 5vh;
+    height: 45px;
 
     /* Style the header links */
     a {
@@ -62,6 +64,5 @@ when the screen is 500px wide or less, stack the links on top of each other */
     justify-content: space-between;
     text-align: left;
     border: 2px solid black;
-    height: calc(100vh - 275px);
     overflow-y: auto;
 }

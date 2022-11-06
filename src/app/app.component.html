@@ -4,9 +4,10 @@
 
     <div id="header">
 
-        <block-header></block-header>
+        <block-header pTemplate="header"></block-header>
 
-        <div class="menu">
+        <div *ngIf="authService.isLoggedIn"
+            class="menu">
 
             <nav class="menu-right">
 
@@ -28,7 +29,8 @@
 
     </div>
 
-    <div id="body">
+    <div id="body"
+        [style.height.vh]="authService.isLoggedIn ? 61.5 : 68">
 
         <router-outlet></router-outlet>
 

@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
 
   public getUser() {
 
-    this.userInfo$ = this.http.fetchUsers();
+    this.userInfo$ = this.http.getUsers();
   }
 
 }

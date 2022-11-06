@@ -6,19 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AuthService } from './authentication/auth.service';
 import { AuthGuard } from './guards/auth/auth.guard';
-import { AuthGuardService } from './guards/auth/auth-guard.service';
 import { HttpService } from './http/http.service';
 import { AlertService } from './services/alert.service';
 import { LogService } from './services/log.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MessageService } from './services/message.service';
+import { AuthService } from './authentication/auth.service';
+import { HttpErrorHandlerService } from './http/http-error-handler/http-error-handler.service';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -33,10 +34,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   providers: [
     AuthService,
     AuthGuard,
-    AuthGuardService,
     HttpService,
     AlertService,
-    LogService
+    LogService,
+    MessageService,
+    HttpErrorHandlerService
   ]
 })
 export class CoreModule { }
