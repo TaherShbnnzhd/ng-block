@@ -6,7 +6,7 @@
 
         <block-header pTemplate="header"></block-header>
 
-        <div *ngIf="authService.isLoggedIn"
+        <div *ngIf="authService.getAuthorizationToken()"
             class="menu">
 
             <nav class="menu-right">
