@@ -10,27 +10,25 @@ import {
   Router,
   RouterStateSnapshot,
   UrlSegment,
-  UrlTree
+  UrlTree,
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../../authentication/auth.service';
 
-
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
-
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     const url: string = state.url;
 
     console.log('Passed Through canActivate Guard.');
@@ -41,8 +39,11 @@ export class AuthGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]
-  ): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
     const url = `/${route.path}`;
 
     console.log('Passed Through canLoad Guard.');
@@ -52,8 +53,9 @@ export class AuthGuard implements CanActivate, CanLoad {
 
   /** Check Login Status */
   private checkLogin(url: string): boolean {
-    
-    if (this.authService.isLoggedIn) { return true; }
+    if (this.authService.getAuthorizationToken()) {
+      return true;
+    }
 
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
@@ -65,7 +67,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     // that contains our global query params and fragment
     const navigationExtras: NavigationExtras = {
       queryParams: { session_id: sessionId },
-      fragment: 'anchor'
+      fragment: 'anchor',
     };
 
     // Navigate to the login page with extras
